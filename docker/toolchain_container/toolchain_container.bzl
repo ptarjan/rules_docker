@@ -146,7 +146,7 @@ def _language_tool_layer_impl(
             inputs = installables_tars,
             outputs = [final_installables_tar],
             command = "tar cvf {output_tar} --files-from /dev/null && \
-        for i in {input_tars}; do tar A --file={output_tar} $i; done".format(
+        for i in {input_tars}; do tar -r --file={output_tar} $i; done".format(
                 output_tar = final_installables_tar.path,
                 input_tars = " ".join(installables_tars_paths),
             ),
